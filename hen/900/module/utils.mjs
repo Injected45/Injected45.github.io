@@ -19,7 +19,7 @@ import { Int } from './int64.mjs';
 
 export function die(msg) {
     alert(msg);
-    undefinedFunction();
+    // undefinedFunction();
 }
 
 export function debug_log(msg) {
