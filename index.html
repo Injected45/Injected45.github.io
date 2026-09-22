@@ -3,7 +3,9 @@
 <style>
 html, body {
 background-image: url("img.jpg");
-background-size: 100%;
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
 background-repeat: no-repeat;
 background-color: #24272b;
 color: white;
@@ -26,6 +28,47 @@ a {
     display: none;
 }
 
+.glass-loader {
+    position: relative;
+    display: inline-block;
+    margin-top: 285px;
+    margin-bottom: 230px;
+    padding: 22px 44px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    overflow: hidden;
+}
+
+.glass-loader::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg);
+    animation: flashlight 2.5s ease-in-out infinite;
+}
+
+@keyframes flashlight {
+    0%   { left: -60%; }
+    100% { left: 140%; }
+}
+
+.glass-loader h1 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-size: 30px;
+    direction: rtl;
+    font-family: system-ui, "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
 </style><script>
 if (window.applicationCache.status=='0'){window.location.replace("cache.html");}</script>
 <script src="payload.js"></script>
@@ -34,7 +77,9 @@ if (window.applicationCache.status=='0'){window.location.replace("cache.html");}
 <body>
 <pre id='console'></pre>
 <br>
-<h1 id=msgs style="font-size: 30px;margin-top: 285px;margin-bottom: 230px;">Jailbreaking <font color=#fc0404> ( Please wait ) ....</h1>
+<div class="glass-loader">
+<h1 id=msgs>جاري تفعيل الجهاز <font color=#fc0404>برجاء الانتظار</font> ....</h1>
+</div>
 <br>
 </div>
 </html>
